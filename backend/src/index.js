@@ -10,7 +10,10 @@ import messageRoute from './routes/message.route.js'
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: true }));
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 
 const PORT = process.env.PORT || 5000;
 
