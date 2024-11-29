@@ -5,7 +5,7 @@ import { axiosInstance } from "../lib/axios.js";
 export const useAuthStore = create((set) => ({
   authUser: null,
   isSigningUp: false,
-  isLogginIn: false,
+  isLoggingIn: false,
   isUpdatingProfile: false,
 
   isCheckingAuth: true,
@@ -30,11 +30,24 @@ export const useAuthStore = create((set) => ({
       toast.success("Account created successfully");
       get().connectSocket();
     } catch (error) {
-        console.log(error);
-        
+      console.log(error);
+
       toast.error(error.message);
     } finally {
       set({ isSigningUp: false });
+    }
+  },
+
+  login: async (data) => {
+    set({ isLogginIn: true });
+    try {
+      const res = await axiosInstance.post("/auth/login", data);
+      set({ authUser: res.data });
+      toast.success("Logged In successfully");
+    } catch (error) {
+      toast.error(error.response.data.message);
+    } finally {
+      set({ isLogginIn: false });
     }
   },
 
