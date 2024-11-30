@@ -30,14 +30,14 @@ const MessageInput = () => {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (!text.trim() && !imagePreview) return;
+    // if (!text.trim() && !imagePreview) return;
 
     try {
       await sendMessage({
         text: text.trim(),
         image: imagePreview,
       });
-
+      
       // Clear form
       setText("");
       setImagePreview(null);
@@ -97,7 +97,7 @@ const MessageInput = () => {
         </div>
         <button
           type="submit"
-          className="btn btn-sm btn-circle"
+          className="btn btn-circle"
           disabled={!text.trim() && !imagePreview}
         >
           <Send size={22} />
