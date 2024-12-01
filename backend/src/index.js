@@ -24,10 +24,6 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 
-app.get("/", (req, res) => {
-  res.send("Hello, this is your Express backend!");
-});
-
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoute);
 
