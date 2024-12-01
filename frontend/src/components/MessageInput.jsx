@@ -37,6 +37,8 @@ const MessageInput = () => {
         text: text.trim(),
         image: imagePreview,
       });
+
+      // Clear form
       setText("");
       setImagePreview(null);
       if (fileInputRef.current) fileInputRef.current.value = "";

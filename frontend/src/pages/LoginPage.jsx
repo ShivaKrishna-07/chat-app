@@ -48,7 +48,7 @@ const LoginPage = () => {
                 </div>
                 <input
                   type="email"
-                  autocomplete="username" 
+                  autoComplete="username" 
                   className={`input input-bordered w-full pl-10`}
                   placeholder="you@example.com"
                   value={formData.email}
@@ -69,7 +69,7 @@ const LoginPage = () => {
                   type={showPassword ? "text" : "password"}
                   className={`input input-bordered w-full pl-10`}
                   placeholder="••••••••"
-                  autocomplete="current-password"
+                  autoComplete="current-password"
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
